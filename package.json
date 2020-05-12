@@ -1,0 +1,28 @@
+{
+  "name": "puppet-scrape",
+  "version": "1.0.0",
+  "description": "undefined",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NakshatraCodes/puppet-scrape.git"
+  },
+  "keywords": [
+    "scraping",
+    "puppeteer",
+    "nodejs",
+    "webscraping"
+  ],
+  "author": "Nakshatra Saxena",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NakshatraCodes/puppet-scrape/issues"
+  },
+  "homepage": "https://github.com/NakshatraCodes/puppet-scrape#readme",
+  "dependencies": {
+    "puppeteer": "^3.0.4"
+  }
+}
