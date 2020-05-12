@@ -31,3 +31,4 @@ const scrape = async (url, type)=>{
 
 // Specify the url and type as scrape(url, pdf)
 scrape('https://github.com/NakshatraCodes', 'pdf');
+scrape('https://github.com/NakshatraCodes', 'jpeg');
