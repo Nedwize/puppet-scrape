@@ -8,7 +8,7 @@ const scrape = async (url, type)=>{
 	const page = await browser.newPage();
 
 	await page.goto(url);
-	await page.setViewport({ width: 1680, height: 1050 });
+	await page.setViewport({ width: 1680, height: 1050, deviceScaleFactor: 2});
 
 	if(type=='jpeg'){
 		const options = {
@@ -17,18 +17,23 @@ const scrape = async (url, type)=>{
 		type: 'jpeg',
 		quality: 100
 		}
-		await page.screenshot(options);
+		await page.screenshot(options)
+			.then( () => {
+				console.log('Saved SS');
+			});
 	} else if(type=='pdf'){
 		await page.pdf({
-	    	path: `C:/Users/naksh/Pictures/Github-Screenshots/${date}.pdf`,
+	    	path: `C:/Users/naksh/Pictures/Github-Screenshots/${date}123.pdf`,
 	   		format: 'A4'
 	  	});
 	}
 	
-	await browser.close();
-	console.log('Done');
+	await browser.close()
+		.then( () => {
+			console.log('Done Saving')
+		})
 }
 
 // Specify the url and type as scrape(url, pdf)
-scrape('https://github.com/NakshatraCodes', 'pdf');
+// scrape('https://github.com/NakshatraCodes', 'pdf');
 scrape('https://github.com/NakshatraCodes', 'jpeg');
