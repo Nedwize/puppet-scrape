@@ -23,7 +23,7 @@ const scrape = async (url, type)=>{
 			});
 	} else if(type=='pdf'){
 		await page.pdf({
-	    	path: `C:/Users/naksh/Pictures/Github-Screenshots/${date}123.pdf`,
+	    	path: `C:/Users/naksh/Pictures/Github-Screenshots/${date}.pdf`,
 	   		format: 'A4'
 	  	});
 	}
