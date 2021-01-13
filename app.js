@@ -1,39 +1,9 @@
-const puppeteer = require('puppeteer');
-var d = new Date;
-var date = d.getDate() + '-' + (d.getMonth()+1) + '-' + d.getFullYear();
+const scrape = require("./scrape");
 
-const scrape = async (url, type)=>{
+const url = 'https://github.com/NakshatraCodes';
+const type = 'jpeg';
+const path = 'C:/Users/naksh/Pictures';
 
-	const browser = await puppeteer.launch();
-	const page = await browser.newPage();
-
-	await page.goto(url);
-	await page.setViewport({ width: 1680, height: 1050, deviceScaleFactor: 2});
-
-	if(type=='jpeg'){
-		const options = {
-		path: `C:/Users/naksh/Pictures/Github-Screenshots/${date}.jpeg`,
-		fullPage: true,
-		type: 'jpeg',
-		quality: 100
-		}
-		await page.screenshot(options)
-			.then( () => {
-				console.log('Saved SS');
-			});
-	} else if(type=='pdf'){
-		await page.pdf({
-	    	path: `C:/Users/naksh/Pictures/Github-Screenshots/${date}.pdf`,
-	   		format: 'A4'
-	  	});
-	}
-	
-	await browser.close()
-		.then( () => {
-			console.log('Done Saving')
-		})
-}
-
-// Specify the url and type as scrape(url, pdf)
-// scrape('https://github.com/NakshatraCodes', 'pdf');
-scrape('https://github.com/NakshatraCodes', 'jpeg');
+scrape(url, type, path , (result) => {
+    console.log(result)
+});
