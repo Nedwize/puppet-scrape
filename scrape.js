@@ -11,7 +11,7 @@ const scrape = async (url, type, path, callback)=>{
 	await page.setViewport({ width: 1680, height: 1050, deviceScaleFactor: 2});
     
     const message = [];
-    
+
 	if(type=='jpeg'){
 		const options = {
 		path: path + `/${date}.jpeg`,
@@ -27,7 +27,7 @@ const scrape = async (url, type, path, callback)=>{
 			});
 	} else if(type=='pdf'){
 		await page.pdf({
-	    	path: path + `${date}.pdf`,
+	    	path: path + `/${date}.pdf`,
 	   		format: 'A4'
 		  })
 		  .then( () => {
